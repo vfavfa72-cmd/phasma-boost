@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vfavfa72-cmd.github.io/phasma-boost/sitemap.xml
