@@ -1,213 +1,412 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Phasmophobia Boost</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
-
-<style>
-* {margin:0;padding:0;box-sizing:border-box;}
-
-body {
-    font-family: 'Orbitron', sans-serif;
-    background: radial-gradient(circle at top, #020617, #000);
-    color: white;
-    overflow-x: hidden;
-}
-
-/* Глоу фон */
-.glow {
-    position: fixed;
-    width: 500px;
-    height: 500px;
-    background: #22c55e;
-    filter: blur(200px);
-    top: -150px;
-    left: -150px;
-    opacity: 0.2;
-}
-
-/* HEADER */
-header {
-    text-align: center;
-    padding: 30px;
-    font-size: 32px;
-    letter-spacing: 2px;
-}
-
-/* NAV */
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-nav button {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 10px 18px;
-    border-radius: 12px;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-nav button:hover {
-    background: #22c55e;
-    box-shadow: 0 0 15px #22c55e;
-}
-
-/* CARD */
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-}
-
-.card {
-    background: rgba(255,255,255,0.03);
-    backdrop-filter: blur(20px);
-    padding: 40px;
-    border-radius: 25px;
-    box-shadow: 0 0 40px rgba(0,0,0,0.6);
-    animation: fade 0.6s ease;
-}
-
-/* TEXT */
-h1 {margin-bottom:15px;}
-p {opacity:0.8;margin-bottom:10px;}
-
-/* КНОПКА */
-.btn {
-    margin-top: 20px;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 15px;
-    background: #22c55e;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px #22c55e;
-}
-
-/* ТРИГГЕР */
-.urgent {
-    margin-top: 15px;
-    color: #22c55e;
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% {opacity:1;}
-    50% {opacity:0.3;}
-    100% {opacity:1;}
-}
-
-/* TAB */
-.tab {display:none;}
-.tab.active {display:block;}
-
-/* АНИМАЦИЯ */
-@keyframes fade {
-    from {opacity:0;transform:translateY(20px);}
-    to {opacity:1;transform:translateY(0);}
-}
-
-/* POPUP */
-.popup {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #111;
-    padding: 15px 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px black;
-    font-size: 14px;
-    animation: fade 0.5s;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phasmophobia Boost | Профессиональная прокачка аккаунтов</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Профессиональная прокачка аккаунтов в Phasmophobia. Быстро, безопасно, без читов. Опытные игроки, доступные цены, гарантия качества.">
+    <meta name="keywords" content="phasmophobia, буст, прокачка, аккаунт, phasmophobia boost, прокачка phasmophobia">
+    <meta name="author" content="PhasmaBoost">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vfavfa72-cmd.github.io/phasma-boost/">
+    <meta property="og:title" content="Phasmophobia Boost | Профессиональная прокачка аккаунтов">
+    <meta property="og:description" content="Профессиональная прокачка аккаунтов в Phasmophobia. Быстро, безопасно, без читов.">
+    <meta property="og:image" content="https://vfavfa72-cmd.github.io/phasma-boost/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vfavfa72-cmd.github.io/phasma-boost/">
+    <meta property="twitter:title" content="Phasmophobia Boost | Профессиональная прокачка аккаунтов">
+    <meta property="twitter:description" content="Профессиональная прокачка аккаунтов в Phasmophobia. Быстро, безопасно, без читов.">
+    <meta property="twitter:image" content="https://vfavfa72-cmd.github.io/phasma-boost/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👻</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-icon">👻</span>
+                    <span class="logo-text">PHASMA<span class="highlight">BOOST</span></span>
+                </div>
+                <div class="nav-links">
+                    <a href="#services">Услуги</a>
+                    <a href="#process">Процесс</a>
+                    <a href="#reviews">Отзывы</a>
+                    <a href="#contact" class="btn-primary">Связаться</a>
+                </div>
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-<div class="glow"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">⚡ Быстро • Надёжно • Без риска</div>
+                <h1 class="hero-title">
+                    Профессиональная<br>
+                    <span class="gradient-text">Прокачка Аккаунта</span><br>
+                    в Phasmophobia
+                </h1>
+                <p class="hero-subtitle">
+                    Достигните желаемого уровня без затрат времени.<br>
+                    Только ручная прокачка, без читов и риска бана.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-large btn-primary">
+                        <span>Заказать буст</span>
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#process" class="btn-large btn-secondary">
+                        <span>Как это работает</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Выполненных заказов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Поддержка</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Безопасность</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
 
-<header>👻 PHASMOPHOBIA BOOST</header>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Быстрое выполнение</h3>
+                    <p>Начинаем работу сразу после оплаты. Средний срок выполнения - 1-3 дня</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Полная безопасность</h3>
+                    <p>Без читов и программ. Только ручная прокачка опытными игроками</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Онлайн поддержка</h3>
+                    <p>Отвечаем в Discord и FunPay. Всегда на связи для ваших вопросов</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Конфиденциальность</h3>
+                    <p>Данные не сохраняются и не передаются третьим лицам</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<nav>
-    <button onclick="showTab('buy')">Купить</button>
-    <button onclick="showTab('deal')">Сделка</button>
-    <button onclick="showTab('safe')">Безопасность</button>
-    <button onclick="showTab('privacy')">Конфиденциальность</button>
-</nav>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Наши <span class="gradient-text">Услуги</span></h2>
+                <p class="section-subtitle">Выберите подходящий пакет прокачки</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-badge">Популярно</div>
+                    <div class="service-icon">⭐</div>
+                    <h3>Базовая прокачка</h3>
+                    <div class="service-price">
+                        <span class="price-amount">от 120₽</span>
+                    </div>
+                    <ul class="service-features">
+                        <li>✓ Прокачка до нужного уровня</li>
+                        <li>✓ Выполнение заданий</li>
+                        <li>✓ Сбор денег</li>
+                        <li>✓ Отчёт о прогрессе</li>
+                    </ul>
+                    <a href="#contact" class="btn-service">Заказать</a>
+                </div>
+                <div class="service-card featured">
+                    <div class="service-badge premium">Премиум</div>
+                    <div class="service-icon">💎</div>
+                    <h3>Премиум прокачка</h3>
+                    <div class="service-price">
+                        <span class="price-amount">от 240₽</span>
+                    </div>
+                    <ul class="service-features">
+                        <li>✓ Всё из базовой прокачки</li>
+                        <li>✓ Высокий прогресс</li>
+                        <li>✓ Базовая поддержка</li>
+                        <li>✓ Скриншоты прогресса</li>
+                    </ul>
+                    <a href="#contact" class="btn-service">Заказать</a>
+                </div>
+                <div class="service-card highlighted">
+                    <div class="service-badge highlighted-badge">Быстро</div>
+                    <div class="service-icon">🚀</div>
+                    <h3>Максимальная прокачка</h3>
+                    <div class="service-price">
+                        <span class="price-amount">500₽</span>
+                    </div>
+                    <ul class="service-features">
+                        <li>✓ Прокачка до максимума</li>
+                        <li>✓ Все уровни</li>
+                        <li>✓ Быстрое выполнение</li>
+                        <li>✓ Приоритетная поддержка</li>
+                    </ul>
+                    <a href="#contact" class="btn-service">Заказать</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-badge">Гибко</div>
+                    <div class="service-icon">⚙️</div>
+                    <h3>Индивидуальный заказ</h3>
+                    <div class="service-price">
+                        <span class="price-amount">Договорная</span>
+                    </div>
+                    <ul class="service-features">
+                        <li>✓ Любые задачи</li>
+                        <li>✓ Гибкие условия</li>
+                        <li>✓ Персональный подход</li>
+                        <li>✓ Консультация бесплатно</li>
+                    </ul>
+                    <a href="#contact" class="btn-service">Обсудить</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="container">
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Как проходит <span class="gradient-text">Сделка</span></h2>
+                <p class="section-subtitle">Простой и прозрачный процесс работы</p>
+            </div>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Связь</h3>
+                        <p>Пишете в Discord или FunPay, уточняете свободен ли я</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Обсуждение</h3>
+                        <p>Договариваемся о цене и деталях прокачки</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Оплата</h3>
+                        <p>Покупаете услугу через FunPay или другим удобным способом</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Передача данных</h3>
+                        <p>Передаёте данные от аккаунта в безопасном формате</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">05</div>
+                    <div class="step-content">
+                        <h3>Прокачка</h3>
+                        <p>Я делаю буст, вы получаете отчёты о прогрессе</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">06</div>
+                    <div class="step-content">
+                        <h3>Проверка</h3>
+                        <p>Вы проверяете результат и меняете пароль</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="card tab active" id="buy">
-    <h1>Прокачка аккаунта</h1>
-    <p>⚡ Быстро • Надёжно • Без риска</p>
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Отзывы <span class="gradient-text">Клиентов</span></h2>
+                <p class="section-subtitle">Что говорят наши клиенты</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">👤</div>
+                        <div class="review-info">
+                            <div class="review-name">Клиент</div>
+                            <div class="review-date">Этот месяц</div>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="review-text">все быстро сделал и объяснил по шагам</p>
+                    <div class="review-game">Phasmophobia</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">👤</div>
+                        <div class="review-info">
+                            <div class="review-name">Клиент</div>
+                            <div class="review-date">Этот месяц</div>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="review-text">Всё топ</p>
+                    <div class="review-game">Прочие игры</div>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">👤</div>
+                        <div class="review-info">
+                            <div class="review-name">Клиент</div>
+                            <div class="review-date">Этот месяц</div>
+                        </div>
+                        <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                    </div>
+                    <p class="review-text">имба просто пушка бомба</p>
+                    <div class="review-game">Прочие игры</div>
+                </div>
+            </div>
+            <div class="reviews-link">
+                <a href="https://funpay.com/users/19575364/" target="_blank" class="btn-secondary">
+                    Все отзывы на FunPay →
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <p><b>Discord:</b> vafge_50913</p>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2 class="section-title">Готовы начать?</h2>
+                    <p class="contact-description">
+                        Свяжитесь со мной любым удобным способом, и мы обсудим детали вашего заказа
+                    </p>
+                    <div class="contact-methods">
+                        <a href="https://discord.com/users/vafge_50913" target="_blank" class="contact-method">
+                            <div class="method-icon discord">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                                </svg>
+                            </div>
+                            <div class="method-details">
+                                <div class="method-name">Discord</div>
+                                <div class="method-value">vafge_50913</div>
+                            </div>
+                        </a>
+                        <a href="https://funpay.com/users/19575364/" target="_blank" class="contact-method">
+                            <div class="method-icon funpay">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                                </svg>
+                            </div>
+                            <div class="method-details">
+                                <div class="method-name">FunPay</div>
+                                <div class="method-value">vafa198</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="trust-badges">
+                        <div class="trust-badge">
+                            <span class="badge-icon">✓</span>
+                            <span>Проверенный продавец</span>
+                        </div>
+                        <div class="trust-badge">
+                            <span class="badge-icon">✓</span>
+                            <span>Быстрый ответ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-visual">
+                    <div class="visual-card">
+                        <div class="visual-icon">👻</div>
+                        <h3>Начните прямо сейчас</h3>
+                        <p>Обычно отвечаю в течение 5-10 минут</p>
+                        <div class="visual-status">
+                            <span class="status-dot"></span>
+                            <span>Онлайн</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">👻</span>
+                        <span class="logo-text">PHASMA<span class="highlight">BOOST</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Профессиональная прокачка аккаунтов в Phasmophobia.<br>
+                        Быстро, безопасно, надёжно.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Навигация</h4>
+                        <a href="#services">Услуги</a>
+                        <a href="#process">Процесс</a>
+                        <a href="#reviews">Отзывы</a>
+                        <a href="#contact">Контакты</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Связь</h4>
+                        <a href="https://discord.com/users/vafge_50913" target="_blank">Discord</a>
+                        <a href="https://funpay.com/users/19575364/" target="_blank">FunPay</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PhasmaBoost. Все права защищены.</p>
+                <p class="footer-disclaimer">Мы не связаны с Kinetic Games или Phasmophobia</p>
+            </div>
+        </div>
+    </footer>
 
-    <button class="btn" onclick="buy()">Купить сейчас</button>
-</div>
-
-<div class="card tab" id="deal">
-    <h1>Как проходит сделка</h1>
-    <p>1) Пишете в Discord/funpay</p>
-    <p>2) Уточняете свободен ли я</p>
-    <p>3) Договариваемся о цене</p>
-    <p>4) Покупаете услугу</p>
-    <p>5) Передаёте аккаунт</p>
-    <p>6) Я делаю буст</p>
-    <p>7) Вы проверяете</p>
-    <p>8) Меняете пароль</p>
-</div>
-
-<div class="card tab" id="safe">
-    <h1>Безопасность</h1>
-    <p>✔ Без читов</p>
-    <p>✔ Без риска бана</p>
-    <p>✔ Только ручная прокачка</p>
-</div>
-
-<div class="card tab" id="privacy">
-    <h1>Конфиденциальность</h1>
-    <p>✔ Данные не сохраняются</p>
-    <p>✔ Не передаются третьим лицам</p>
-</div>
-
-</div>
-
-<script>
-function showTab(id){
-    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-}
-
-function buy(){
-    window.open("https://funpay.com/users/19575364/","_blank");
-}
-
-/* Фейковые уведомления */
-let names = ["Alex","Max","Dima","Ghost","Player","User"];
-setInterval(()=>{
-    let popup = document.createElement("div");
-    popup.className = "popup";
-    popup.innerText = names[Math.floor(Math.random()*names.length)] + " купил буст";
-    document.body.appendChild(popup);
-
-    setTimeout(()=>popup.remove(),3000);
-},5000);
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
