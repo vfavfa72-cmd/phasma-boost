@@ -4,159 +4,209 @@
 <meta charset="UTF-8">
 <title>Phasmophobia Boost</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
+* {margin:0;padding:0;box-sizing:border-box;}
+
 body {
-    margin: 0;
-    font-family: Arial;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
+    font-family: 'Orbitron', sans-serif;
+    background: radial-gradient(circle at top, #020617, #000);
     color: white;
+    overflow-x: hidden;
 }
 
+/* Глоу фон */
+.glow {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    background: #22c55e;
+    filter: blur(200px);
+    top: -150px;
+    left: -150px;
+    opacity: 0.2;
+}
+
+/* HEADER */
 header {
-    padding: 20px;
-    font-size: 28px;
     text-align: center;
-    font-weight: bold;
+    padding: 30px;
+    font-size: 32px;
+    letter-spacing: 2px;
 }
 
+/* NAV */
 nav {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    background: rgba(0,0,0,0.3);
-    padding: 15px;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 nav button {
-    background: none;
-    border: none;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 10px 18px;
+    border-radius: 12px;
     color: white;
-    font-size: 16px;
     cursor: pointer;
-    padding: 10px 15px;
-    border-radius: 10px;
+    transition: 0.3s;
 }
 
 nav button:hover {
-    background: rgba(255,255,255,0.1);
+    background: #22c55e;
+    box-shadow: 0 0 15px #22c55e;
 }
 
+/* CARD */
 .container {
-    max-width: 800px;
-    margin: 40px auto;
-    background: rgba(255,255,255,0.05);
-    padding: 30px;
-    border-radius: 20px;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
 }
 
-h1 {
-    margin-top: 0;
+.card {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(20px);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 0 40px rgba(0,0,0,0.6);
+    animation: fade 0.6s ease;
 }
 
+/* TEXT */
+h1 {margin-bottom:15px;}
+p {opacity:0.8;margin-bottom:10px;}
+
+/* КНОПКА */
 .btn {
     margin-top: 20px;
-    padding: 15px 25px;
-    background: #22c55e;
+    padding: 15px 30px;
     border: none;
-    border-radius: 10px;
-    color: white;
-    font-size: 16px;
+    border-radius: 15px;
+    background: #22c55e;
+    color: black;
+    font-weight: bold;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 .btn:hover {
-    background: #16a34a;
-    transform: scale(1.05);
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #22c55e;
 }
 
-.contact {
+/* ТРИГГЕР */
+.urgent {
     margin-top: 15px;
-    padding: 10px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 10px;
-    display: inline-block;
+    color: #22c55e;
+    animation: pulse 1.5s infinite;
 }
 
-.tab {
-    display: none;
+@keyframes pulse {
+    0% {opacity:1;}
+    50% {opacity:0.3;}
+    100% {opacity:1;}
 }
 
-.tab.active {
-    display: block;
+/* TAB */
+.tab {display:none;}
+.tab.active {display:block;}
+
+/* АНИМАЦИЯ */
+@keyframes fade {
+    from {opacity:0;transform:translateY(20px);}
+    to {opacity:1;transform:translateY(0);}
+}
+
+/* POPUP */
+.popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #111;
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px black;
+    font-size: 14px;
+    animation: fade 0.5s;
 }
 </style>
 </head>
 
 <body>
 
-<header>👻 Phasmophobia Boost</header>
+<div class="glow"></div>
+
+<header>👻 PHASMOPHOBIA BOOST</header>
 
 <nav>
     <button onclick="showTab('buy')">Купить</button>
-    <button onclick="showTab('deal')">Как проходит сделка</button>
+    <button onclick="showTab('deal')">Сделка</button>
     <button onclick="showTab('safe')">Безопасность</button>
     <button onclick="showTab('privacy')">Конфиденциальность</button>
 </nav>
 
 <div class="container">
 
-    <!-- Купить -->
-    <div id="buy" class="tab active">
-        <h1>Купить буст</h1>
-        <p>Быстро • Надежно • Без лишних проблем</p>
+<div class="card tab active" id="buy">
+    <h1>Прокачка аккаунта</h1>
+    <p>⚡ Быстро • Надёжно • Без риска</p>
 
-        <div class="contact">
-            📩 Discord: <b>vafge_50913</b>
-        </div>
+    <p><b>Discord:</b> vafge_50913</p>
 
-        <br>
 
-        <button class="btn" onclick="buy()">Перейти к покупке</button>
-    </div>
+    <button class="btn" onclick="buy()">Купить сейчас</button>
+</div>
 
-    <!-- Сделка -->
-    <div id="deal" class="tab">
-        <h1>Как проходит сделка</h1>
+<div class="card tab" id="deal">
+    <h1>Как проходит сделка</h1>
+    <p>1) Пишете в Discord</p>
+    <p>2) Уточняете свободен ли я</p>
+    <p>3) Договариваемся о цене</p>
+    <p>4) Покупаете услугу</p>
+    <p>5) Передаёте аккаунт</p>
+    <p>6) Я делаю буст</p>
+    <p>7) Вы проверяете</p>
+    <p>8) Меняете пароль</p>
+</div>
 
-        <p>1) Вы пишите мне и уточняете, свободен ли я сейчас</p>
-        <p>2) Если свободен — договариваемся о цене (если цена договорная)</p>
-        <p>3) Вы покупаете услугу</p>
-        <p>4) Передаете аккаунт — я выполняю буст</p>
-        <p>5) Вы проверяете результат и меняете пароль</p>
-        <p>6) Подтверждаете заказ</p>
-    </div>
+<div class="card tab" id="safe">
+    <h1>Безопасность</h1>
+    <p>✔ Без читов</p>
+    <p>✔ Без риска бана</p>
+    <p>✔ Только ручная прокачка</p>
+</div>
 
-    <!-- Безопасность -->
-    <div id="safe" class="tab">
-        <h1>Безопасность</h1>
-
-        <p>✔ Аккаунты не передаются третьим лицам</p>
-        <p>✔ Используются безопасные методы прокачки</p>
-        <p>✔ После выполнения вы меняете пароль</p>
-        <p>✔ Никаких сторонних программ на ваш ПК</p>
-    </div>
-
-    <!-- Конфиденциальность -->
-    <div id="privacy" class="tab">
-        <h1>Конфиденциальность</h1>
-
-        <p>✔ Ваши данные не сохраняются</p>
-        <p>✔ Логины и пароли используются только для выполнения услуги</p>
-        <p>✔ Никакая информация не передается третьим лицам</p>
-    </div>
+<div class="card tab" id="privacy">
+    <h1>Конфиденциальность</h1>
+    <p>✔ Данные не сохраняются</p>
+    <p>✔ Не передаются третьим лицам</p>
+</div>
 
 </div>
 
 <script>
-function showTab(tabId) {
-    let tabs = document.querySelectorAll('.tab');
-    tabs.forEach(tab => tab.classList.remove('active'));
-    document.getElementById(tabId).classList.add('active');
+function showTab(id){
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
 }
 
-function buy() {
-    window.open("https://funpay.com/users/19575364/", "_blank");
+function buy(){
+    window.open("https://funpay.com/users/19575364/","_blank");
 }
+
+/* Фейковые уведомления */
+let names = ["Alex","Max","Dima","Ghost","Player","User"];
+setInterval(()=>{
+    let popup = document.createElement("div");
+    popup.className = "popup";
+    popup.innerText = names[Math.floor(Math.random()*names.length)] + " купил буст";
+    document.body.appendChild(popup);
+
+    setTimeout(()=>popup.remove(),3000);
+},5000);
 </script>
 
 </body>
