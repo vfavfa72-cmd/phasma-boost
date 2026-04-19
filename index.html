@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Phasmophobia Boost</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: white;
+}
+
+header {
+    padding: 20px;
+    font-size: 28px;
+    text-align: center;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: rgba(0,0,0,0.3);
+    padding: 15px;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+nav button:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 20px;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 15px 25px;
+    background: #22c55e;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #16a34a;
+    transform: scale(1.05);
+}
+
+.contact {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.tab {
+    display: none;
+}
+
+.tab.active {
+    display: block;
+}
+</style>
+</head>
+
+<body>
+
+<header>👻 Phasmophobia Boost</header>
+
+<nav>
+    <button onclick="showTab('buy')">Купить</button>
+    <button onclick="showTab('deal')">Как проходит сделка</button>
+    <button onclick="showTab('safe')">Безопасность</button>
+    <button onclick="showTab('privacy')">Конфиденциальность</button>
+</nav>
+
+<div class="container">
+
+    <!-- Купить -->
+    <div id="buy" class="tab active">
+        <h1>Купить буст</h1>
+        <p>Быстро • Надежно • Без лишних проблем</p>
+
+        <div class="contact">
+            📩 Discord: <b>vafge_50913</b>
+        </div>
+
+        <br>
+
+        <button class="btn" onclick="buy()">Перейти к покупке</button>
+    </div>
+
+    <!-- Сделка -->
+    <div id="deal" class="tab">
+        <h1>Как проходит сделка</h1>
+
+        <p>1) Вы пишите мне и уточняете, свободен ли я сейчас</p>
+        <p>2) Если свободен — договариваемся о цене (если цена договорная)</p>
+        <p>3) Вы покупаете услугу</p>
+        <p>4) Передаете аккаунт — я выполняю буст</p>
+        <p>5) Вы проверяете результат и меняете пароль</p>
+        <p>6) Подтверждаете заказ</p>
+    </div>
+
+    <!-- Безопасность -->
+    <div id="safe" class="tab">
+        <h1>Безопасность</h1>
+
+        <p>✔ Аккаунты не передаются третьим лицам</p>
+        <p>✔ Используются безопасные методы прокачки</p>
+        <p>✔ После выполнения вы меняете пароль</p>
+        <p>✔ Никаких сторонних программ на ваш ПК</p>
+    </div>
+
+    <!-- Конфиденциальность -->
+    <div id="privacy" class="tab">
+        <h1>Конфиденциальность</h1>
+
+        <p>✔ Ваши данные не сохраняются</p>
+        <p>✔ Логины и пароли используются только для выполнения услуги</p>
+        <p>✔ Никакая информация не передается третьим лицам</p>
+    </div>
+
+</div>
+
+<script>
+function showTab(tabId) {
+    let tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+}
+
+function buy() {
+    window.open("https://funpay.com/users/19575364/", "_blank");
+}
+</script>
+
+</body>
+</html>
