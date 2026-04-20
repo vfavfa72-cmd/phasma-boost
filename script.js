@@ -303,12 +303,18 @@ document.querySelector('.level-progress-card') &&
 // ── Tilt effect on service cards ─────────────
 document.querySelectorAll('.service-card').forEach(card => {
     card.addEventListener('mousemove', e => {
+        // Don't tilt if hovering over the button
+        if (e.target.closest('.btn-service')) return;
         const rect = card.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width  - 0.5;
         const y = (e.clientY - rect.top)  / rect.height - 0.5;
         card.style.transform = `translateY(-12px) rotateX(${-y * 8}deg) rotateY(${x * 8}deg) scale(1.02)`;
     });
     card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+    });
+    // Reset tilt on mousedown so click registers cleanly
+    card.addEventListener('mousedown', () => {
         card.style.transform = '';
     });
 });
