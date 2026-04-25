@@ -2075,3 +2075,610 @@ body.banner-hidden { padding-top: 0; }
     .discount-banner { font-size: 12px; padding: 8px 40px; }
     body { padding-top: 36px; }
 }
+
+/* =============================================
+   PRICE CALCULATOR
+   ============================================= */
+.calculator {
+    padding: 120px 0;
+    background: var(--bg-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.calculator::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.calc-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    background: rgba(19,19,26,0.8);
+    backdrop-filter: blur(16px);
+    border: 2px solid var(--border);
+    border-radius: 24px;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.calc-card:hover {
+    border-color: var(--primary);
+}
+
+.calc-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+}
+
+.calc-group {
+    margin-bottom: 32px;
+}
+
+.calc-group:last-child {
+    margin-bottom: 0;
+}
+
+.calc-label {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.calc-val {
+    color: var(--primary-light);
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.calc-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--border);
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.calc-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(99,102,241,0.6);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.calc-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(99,102,241,0.8);
+}
+
+.calc-slider::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 12px rgba(99,102,241,0.6);
+}
+
+.calc-range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.calc-type-btns {
+    display: flex;
+    gap: 12px;
+}
+
+.calc-type-btn {
+    flex: 1;
+    padding: 12px 16px;
+    background: rgba(39,39,42,0.6);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.calc-type-btn:hover {
+    border-color: var(--primary);
+    color: var(--text-primary);
+}
+
+.calc-type-btn.active {
+    background: rgba(99,102,241,0.15);
+    border-color: var(--primary);
+    color: var(--primary-light);
+    box-shadow: 0 4px 16px rgba(99,102,241,0.2);
+}
+
+.calc-result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calc-result-inner {
+    text-align: center;
+    width: 100%;
+}
+
+.calc-ghost {
+    font-size: 72px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 24px rgba(99,102,241,0.7));
+    animation: ghost-float 3s ease-in-out infinite;
+}
+
+@keyframes ghost-float {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-12px) rotate(5deg); }
+}
+
+.calc-levels-info {
+    margin-bottom: 24px;
+}
+
+.calc-levels-info span:first-child {
+    font-size: 56px;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    line-height: 1;
+}
+
+.calc-levels-label {
+    font-size: 16px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.calc-price-display {
+    margin-bottom: 12px;
+    padding: 20px;
+    background: rgba(99,102,241,0.1);
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 16px;
+}
+
+.calc-price-label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.calc-price-value {
+    font-size: 42px;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.calc-time-display {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.calc-order-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 15px;
+}
+
+@media (max-width: 768px) {
+    .calc-card {
+        grid-template-columns: 1fr;
+        padding: 28px;
+        gap: 32px;
+    }
+}
+
+/* =============================================
+   WHY US SECTION
+   ============================================= */
+.why-us {
+    padding: 120px 0;
+    background: var(--bg-darker);
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.why-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 32px;
+    background: rgba(19,19,26,0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.why-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+    transform-origin: left;
+}
+
+.why-card:hover::after {
+    transform: scaleX(1);
+}
+
+.why-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+    box-shadow: 0 12px 32px rgba(99,102,241,0.2);
+}
+
+.why-icon {
+    font-size: 40px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 12px rgba(99,102,241,0.5));
+}
+
+.why-content {
+    flex: 1;
+}
+
+.why-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.why-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.why-percent {
+    font-size: 20px;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.why-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.why-fill {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 3px;
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 8px rgba(99,102,241,0.5);
+}
+
+.why-desc {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =============================================
+   COPY BUTTON
+   ============================================= */
+.contact-method-discord {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.contact-method-discord:hover {
+    border-color: var(--primary);
+}
+
+.contact-method-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    text-decoration: none;
+    flex: 1;
+    transition: background 0.3s ease;
+}
+
+.contact-method-link:hover {
+    background: rgba(99,102,241,0.05);
+}
+
+.copy-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 16px;
+    margin-right: 12px;
+    background: rgba(99,102,241,0.1);
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 10px;
+    color: var(--primary-light);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.copy-btn:hover {
+    background: rgba(99,102,241,0.2);
+    border-color: var(--primary);
+    transform: scale(1.05);
+}
+
+.copy-btn.copied {
+    background: rgba(16,185,129,0.15);
+    border-color: var(--success);
+    color: var(--success);
+}
+
+/* =============================================
+   AURORA HERO ENHANCEMENT
+   ============================================= */
+.hero-bg::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99,102,241,0.15) 0%, transparent 60%);
+    animation: aurora 8s ease-in-out infinite alternate;
+}
+
+@keyframes aurora {
+    0% { opacity: 0.6; transform: scale(1) translateY(0); }
+    100% { opacity: 1; transform: scale(1.1) translateY(-20px); }
+}
+
+/* =============================================
+   ENHANCED HERO STATS
+   ============================================= */
+.hero-stats {
+    position: relative;
+}
+
+.stat-item {
+    position: relative;
+    padding: 16px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    background: rgba(99,102,241,0.08);
+    transform: translateY(-4px);
+}
+
+.stat-item::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 20%;
+    height: 60%;
+    width: 1px;
+    background: var(--border);
+}
+
+.stat-item:last-child::after {
+    display: none;
+}
+
+/* =============================================
+   SECTION DIVIDERS
+   ============================================= */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
+    opacity: 0.25;
+}
+
+/* =============================================
+   ENHANCED PROCESS STEPS
+   ============================================= */
+.process-step {
+    transition: all 0.3s ease;
+}
+
+.process-step:hover .step-content {
+    transform: translateX(8px);
+}
+
+.step-content {
+    transition: transform 0.3s ease;
+}
+
+.process-step:hover .step-number {
+    box-shadow: 0 8px 32px rgba(99,102,241,0.6);
+    transform: scale(1.1);
+}
+
+.step-number {
+    transition: all 0.3s ease;
+}
+
+/* =============================================
+   REVIEWS CAROUSEL DOTS
+   ============================================= */
+.reviews-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+}
+
+.reviews-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+}
+
+.reviews-dot.active {
+    background: var(--primary);
+    width: 24px;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(99,102,241,0.5);
+}
+
+/* =============================================
+   ENHANCED FOOTER
+   ============================================= */
+.footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.footer-social-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(39,39,42,0.6);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.footer-social-link:hover {
+    background: rgba(99,102,241,0.15);
+    border-color: var(--primary);
+    color: var(--primary-light);
+    transform: translateY(-3px);
+}
+
+/* =============================================
+   GLOWING BORDER ANIMATION ON FEATURED CARD
+   ============================================= */
+@keyframes border-glow {
+    0%, 100% { box-shadow: 0 12px 32px rgba(99,102,241,0.4), 0 0 0 1px rgba(99,102,241,0.2); }
+    50% { box-shadow: 0 12px 48px rgba(99,102,241,0.6), 0 0 0 2px rgba(99,102,241,0.4); }
+}
+
+.service-card.featured {
+    animation: border-glow 3s ease-in-out infinite;
+}
+
+/* =============================================
+   NOISE TEXTURE OVERLAY
+   ============================================= */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+}
+
+/* =============================================
+   HERO LIVE BADGE
+   ============================================= */
+.hero-live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.3);
+    border-radius: 100px;
+    color: #10b981;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    animation: fadeInDown 0.8s ease 0.1s both;
+}
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse-dot 1.2s ease-in-out infinite;
+    box-shadow: 0 0 6px #10b981;
+    flex-shrink: 0;
+}

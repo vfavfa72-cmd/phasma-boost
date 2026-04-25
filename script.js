@@ -1,4 +1,4 @@
-/* =============================================
+﻿/* =============================================
    PHASMABOOST — script.js
    ============================================= */
 
@@ -190,7 +190,7 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll(
-    '.feature-card, .service-card, .process-step, .review-card, .faq-item, .game-stat'
+    '.feature-card, .service-card, .process-step, .review-card, .faq-item, .game-stat, .why-card'
 ).forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(24px)';
@@ -303,7 +303,6 @@ document.querySelector('.level-progress-card') &&
 // ── Tilt effect on service cards ─────────────
 document.querySelectorAll('.service-card').forEach(card => {
     card.addEventListener('mousemove', e => {
-        // Don't tilt if hovering over the button
         if (e.target.closest('.btn-service')) return;
         const rect = card.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width  - 0.5;
@@ -313,7 +312,6 @@ document.querySelectorAll('.service-card').forEach(card => {
     card.addEventListener('mouseleave', () => {
         card.style.transform = '';
     });
-    // Reset tilt on mousedown so click registers cleanly
     card.addEventListener('mousedown', () => {
         card.style.transform = '';
     });
@@ -321,3 +319,60 @@ document.querySelectorAll('.service-card').forEach(card => {
 
 console.log('%c👻 PhasmaBoost', 'font-size:24px;font-weight:bold;color:#6366f1;');
 console.log('%cПрофессиональная прокачка аккаунтов в Phasmophobia', 'font-size:14px;color:#a1a1aa;');
+
+
+
+// ── Live orders counter ───────────────────────
+(function liveOrders() {
+    const el = document.getElementById('activeOrders');
+    if (!el) return;
+    const base = 2;
+    setInterval(() => {
+        const n = base + Math.floor(Math.random() * 4);
+        el.textContent = n;
+    }, 5000);
+})();
+
+// ── Why Us progress bars ──────────────────────
+const whyObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.querySelectorAll('.why-fill').forEach(bar => {
+            const w = bar.dataset.width;
+            setTimeout(() => { bar.style.width = w + '%'; }, 200);
+        });
+        whyObserver.unobserve(entry.target);
+    });
+}, { threshold: 0.3 });
+
+const whySection = document.querySelector('.why-us');
+if (whySection) whyObserver.observe(whySection);
+
+// ── Reviews auto-rotate dots ──────────────────
+(function initReviewsDots() {
+    const grid = document.querySelector('.reviews-grid');
+    const dotsContainer = document.querySelector('.reviews-dots');
+    if (!grid || !dotsContainer) return;
+
+    const cards = grid.querySelectorAll('.review-card');
+    let active = 0;
+
+    cards.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'reviews-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', `Отзыв ${i + 1}`);
+        dot.addEventListener('click', () => setActive(i));
+        dotsContainer.appendChild(dot);
+    });
+
+    function setActive(idx) {
+        active = idx;
+        dotsContainer.querySelectorAll('.reviews-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === idx);
+        });
+    }
+
+    if (window.innerWidth < 768) {
+        setInterval(() => setActive((active + 1) % cards.length), 4000);
+    }
+})();
